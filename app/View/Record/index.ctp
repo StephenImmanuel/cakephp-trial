@@ -8,21 +8,23 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($records as $record):?>
-			<tr>
-				<td><?php echo $record['Record']['id']?></td>
-				<td><?php echo $record['Record']['name']?></td>
-			</tr>	
-			<?php endforeach;?>
 		</tbody>
 	</table>
 </div>
 <?php $this->start('script_own')?>
 <script>
 $(document).ready(function(){
-	$("#table_records").dataTable({
-
-	});
+    $('#table_records').dataTable({
+        "iDisplayLength": 10,
+        "bProcessing": true,
+        "bServerSide": true,
+        "sAjaxSource": "/record/index.json",
+        "aoColumns": [
+            {mData:"Record.id"},
+            {mData:"Record.name"},
+        ],
+        "sDom": 'frtip'
+    });
 })
 </script>
 <?php $this->end()?>
