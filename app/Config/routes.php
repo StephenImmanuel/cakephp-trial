@@ -34,7 +34,10 @@
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
  */
-	CakePlugin::routes();
+    CakePlugin::routes();
+    
+    Router::connect('/file_uploads/upload', array('controller' => 'FileUpload', 'action' => 'upload'));
+
 
 /**
  * Load the CakePHP default routes. Only remove this if you do not want to use
