@@ -34,7 +34,9 @@
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
  */
-	CakePlugin::routes();
+    CakePlugin::routes();
+    
+    Router::connect('/migration_uploads/migrate', array('controller' => 'Migration', 'action' => 'migrate'));
 
 /**
  * Load the CakePHP default routes. Only remove this if you do not want to use
